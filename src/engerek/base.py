@@ -8,6 +8,13 @@ class Deasciifier(object):
         raise NotImplementedError()
 
 
+class Tokenizer(object):
+
+    @abstractmethod
+    def tokenize(self, text):
+        raise NotImplementedError()
+
+
 class Stemmer(object):
 
     @abstractmethod
