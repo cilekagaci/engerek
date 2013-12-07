@@ -1,6 +1,7 @@
 # coding=utf-8
 import jnius
 from base import Stemmer
+from common import infinitive_form
 
 
 TurkiyeTurkcesi = jnius.autoclass('net.zemberek.tr.yapi.TurkiyeTurkcesi')
@@ -20,17 +21,8 @@ class ZemberekStemmer(Stemmer):
         'ZAMIR',
     }
 
-    @staticmethod
-    def infinitive(word):
-        suffix = ''
-        for letter in reversed(word):
-            if letter in {u'a', u'ı', u'o', u'u'}:
-                suffix = 'mak'
-                break
-            if letter in {u'e', u'i', u'ö', u'ü'}:
-                suffix = 'mek'
-                break
-        return word + suffix
+    def __init__(self, prefer_infinitive_form=False):
+        self.prefer_infinitive_form = prefer_infinitive_form
 
     def stem(self, word):
         roots = self.ROOT_FINDER.kokBul(word)
@@ -40,7 +32,7 @@ class ZemberekStemmer(Stemmer):
             type = root.tip().toString()
             if type in self.IGNORED_TYPES:
                 continue
-            if type == 'FIIL':
-                yield self.infinitive(root.icerik())
+            if self.prefer_infinitive_form and type == 'FIIL':
+                yield infinitive_form(root.icerik())
             else:
                 yield root.icerik()
