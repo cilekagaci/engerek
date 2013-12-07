@@ -26,6 +26,10 @@ class TestZemberekStemmer(unittest.TestCase):
 
         self.assertListEqual(stemmer.stem(u'atandı'),
                              [u'atmak', u'atamak', u'ata'])
+        self.assertListEqual(stemmer.stem(u'söküyorum'), [u'sökmek'])
+        self.assertListEqual(stemmer.stem(u'çıkıyormuş'), [u'çıkmak'])
+        self.assertListEqual(stemmer.stem(u'çıkışıyorduk'),
+                             [u'çıkmak', u'çıkışmak'])
 
 
 if __name__ == '__main__':
