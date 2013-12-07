@@ -13,14 +13,6 @@ class ZemberekStemmer(Stemmer):
     ZEMBEREK = Zemberek(LANGUAGE)
     ROOT_FINDER = ZEMBEREK.kokBulucu()
 
-    IGNORED_TYPES = {
-        'BAGLAC',
-        'EDAT',
-        'IMEK',
-        'SORU',
-        'ZAMIR',
-    }
-
     def __init__(self, prefer_infinitive_form=False):
         self.prefer_infinitive_form = prefer_infinitive_form
 
@@ -30,8 +22,6 @@ class ZemberekStemmer(Stemmer):
             yield word
         for root in roots:
             type = root.tip().toString()
-            if type in self.IGNORED_TYPES:
-                continue
             if self.prefer_infinitive_form and type == 'FIIL':
                 yield infinitive_form(root.icerik())
             else:
