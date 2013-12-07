@@ -33,6 +33,6 @@ setup(
     zip_safe=False,
     install_requires=install_requires,
     entry_points={
-        'console_scripts': ['engerek=engerek:main'],
+        #'console_scripts': ['engerek=engerek:main'],
     }
 )
