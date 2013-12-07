@@ -18,11 +18,17 @@ class ZemberekStemmer(Stemmer):
 
     def stem(self, word):
         roots = self.ROOT_FINDER.kokBul(word)
+
         if len(roots) == 0:
-            yield word
+            return [word]
+
+        stems = []
         for root in roots:
+            stem = root.icerik().decode('utf-8')
             type = root.tip().toString()
             if self.prefer_infinitive_form and type == 'FIIL':
-                yield infinitive_form(root.icerik())
+                stems.append(infinitive_form(stem))
             else:
-                yield root.icerik()
+                stems.append(stem)
+
+        return stems
