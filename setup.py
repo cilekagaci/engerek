@@ -10,7 +10,8 @@ NEWS = open(os.path.join(here, 'NEWS.txt')).read()
 version = '1.0-a'
 
 install_requires = [
-    'jnius>=1.0',
+    'jnius==1.1-dev',
+    'Cython==0.19.2',
 ]
 
 setup(
@@ -34,5 +35,6 @@ setup(
     install_requires=install_requires,
     entry_points={
         #'console_scripts': ['engerek=engerek:main'],
-    }
+    },
+    dependency_links = ['http://github.com/kivy/pyjnius/tarball/master#egg=jnius-1.1-dev']
 )
