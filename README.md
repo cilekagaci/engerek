@@ -1,6 +1,6 @@
 Engerek
 ========
-Turkish natural language processing library.
+Turkish natural language processing library
 --------------------------------------------
 
 Engerek is a Python library that brings together commonly used natural language processing techniques, with a special focus on Turkish text.
@@ -10,8 +10,8 @@ Our aim is to provide a clean and consistent interface for existing open source 
 Currently you can
 
 - tokenize text (Engerek's own tokenizer that recognizes hashtags, user mentions, URLs)
-- stem words (`via Zemberek <https://code.google.com/p/zemberek/>`_)
-- deasciify Turkish text that is written only by ASCII characters (`via Ahmet Balkan's deasciifier <https://code.google.com/p/turkish-deasciifier/>`_)
+- stem words ([via Zemberek](<https://code.google.com/p/zemberek/))
+- deasciify Turkish text that is written only by ASCII characters ([via Ahmet Balkan's deasciifier](https://code.google.com/p/turkish-deasciifier/))
 
 Usage
 -----
