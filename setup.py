@@ -12,6 +12,7 @@ version = '1.0-a'
 install_requires = [
     'jnius==1.1-dev',
     'Cython==0.19.2',
+    'regex',
 ]
 
 setup(
@@ -20,7 +21,7 @@ setup(
     description='Turkish natural language processing tools for Python',
     long_description=README + '\n\n' + NEWS,
     classifiers=[
-        'License :: Other/Proprietary License',
+        'License :: Apache v2.0',
         'Topic :: Text Processing :: Linguistic',
     ],
     keywords='turkish nlp tokenizer stemmer deasciifier',
@@ -33,8 +34,5 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=install_requires,
-    entry_points={
-        #'console_scripts': ['engerek=engerek:main'],
-    },
-    dependency_links = ['http://github.com/kivy/pyjnius/tarball/master#egg=jnius-1.1-dev']
+    dependency_links=['http://github.com/kivy/pyjnius/tarball/master#egg=jnius-1.1-dev'],
 )
