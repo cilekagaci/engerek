@@ -10,9 +10,9 @@ NEWS = open(os.path.join(here, 'NEWS.txt')).read()
 version = '1.0-a'
 
 install_requires = [
-    'jnius==1.1-dev',
-    'Cython==0.19.2',
-    'regex',
+    'Cython>=0.19.2',
+    'jnius>=1.1-dev',
+    'regex>=2013-11-29',
 ]
 
 setup(
