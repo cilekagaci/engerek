@@ -1,7 +1,0 @@
-News
-====
-
-1.0-a
------
-
-*Release date: UNRELEASED*

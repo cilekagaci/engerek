@@ -5,9 +5,8 @@ from setuptools import setup, find_packages
 
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
-NEWS = open(os.path.join(here, 'NEWS.txt')).read()
 
-version = '1.0-a'
+version = '1.0-b'
 
 install_requires = [
     'Cython>=0.19.2',
@@ -19,7 +18,7 @@ setup(
     name='engerek',
     version=version,
     description='Turkish natural language processing tools for Python',
-    long_description=README + '\n\n' + NEWS,
+    long_description=README,
     classifiers=[
         'License :: Apache v2.0',
         'Topic :: Text Processing :: Linguistic',
