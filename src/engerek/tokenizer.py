@@ -35,7 +35,6 @@ class Token(object):
         self.scanner = scanner
         self.type = type(self).__name__
         self.string = string
-        self.folded = string
         self.left = left
         self.right = right
 
@@ -307,4 +306,4 @@ class EngerekTokenizer(BaseEngerekTokenizer):
                 yield token
 
     def tokenize(self, text):
-        return [t.folded for t in self._filtered(text)]
+        return [t.string for t in self._filtered(text)]
