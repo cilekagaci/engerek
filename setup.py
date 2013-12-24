@@ -28,7 +28,7 @@ setup(
     author=u'Çilek Ağacı',
     author_email='info@cilekagaci.com',
     url='http://cilekagaci.com/',
-    license='Proprietary',
+    license='Apache v2.0',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     include_package_data=True,
