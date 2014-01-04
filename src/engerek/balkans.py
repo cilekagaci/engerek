@@ -7,16 +7,19 @@ TurkishDeasciifier = jnius.autoclass('turkish.Deasciifier')
 
 
 class BalkansDeasciifier(Deasciifier):
-    """A wrapper class that uses Balkan's Deasciifier"""
+    """A Turkish deasciifier based on Balkan's deasciifier library."""
 
     def __init__(self):
+        """Creates a BalkansDeasciifier."""
         self.deasciifier = TurkishDeasciifier()
 
     def deasciify(self, text):
-        """Returns deasciified version of a Turkish text.
+        """Returns the deasciified version of the given text.
 
-        :param unicode text: ASCII text to be deasciified
-        :returns unicode: Deasciified text
+        :param text: ASCII text to be deasciified
+        :type text: str or unicode
+        :return: deasciified text
+        :rtype: unicode
         """
 
         self.deasciifier.setAsciiString(text)

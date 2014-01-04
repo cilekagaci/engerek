@@ -224,6 +224,9 @@ class LoveToken(EmoticonToken):
 
 
 class EngerekTokenizer(BaseEngerekTokenizer):
+    """Regex-based Turkish tokenizer that recognizes URLs, e-mail addresses,
+    hashtags, user mentions and various emoticons."""
+
     lexicon = [
         HappyToken,
         LaughingToken,
@@ -259,6 +262,13 @@ class EngerekTokenizer(BaseEngerekTokenizer):
         return cls(scanner, string, left, right)
 
     def __init__(self, strip_apostrophe_suffixes=False):
+        """Creates an EngerekTokenizer.
+
+        :param strip_apostrophe_suffixes: remove apostrophe suffixes from the
+            tokens if ``True``; otherwise keep them (default value is
+            ``False``)
+        :type strip_apostrophe_suffixes: bool
+        """
         super(EngerekTokenizer, self).__init__()
         self.strip_apostrophe_suffixes = strip_apostrophe_suffixes
 
@@ -306,4 +316,11 @@ class EngerekTokenizer(BaseEngerekTokenizer):
                 yield token
 
     def tokenize(self, text):
+        """Splits the given text into its tokens.
+
+        :param text: text to be tokenized
+        :type text: unicode
+        :return: list of tokens
+        :rtype: list of unicode
+        """
         return [t.string for t in self._filtered(text)]

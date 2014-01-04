@@ -9,25 +9,30 @@ Zemberek = jnius.autoclass('net.zemberek.erisim.Zemberek')
 
 
 class ZemberekStemmer(Stemmer):
-    """Wrapper class for Zemberek's kokBulucu (Root finder)"""
+    """Turkish stemmer based on Zemberek library."""
 
     LANGUAGE = TurkiyeTurkcesi()
     ZEMBEREK = Zemberek(LANGUAGE)
     ROOT_FINDER = ZEMBEREK.kokBulucu()
 
     def __init__(self, prefer_infinitive_form=False):
-        #: If prefer_infinitive_form is set to true verb stems will be
-        #: returned in infinitive form
+        """Creates a ZemberekStemmer.
+
+        :param prefer_infinitive_form: return verb stems in infinitive form if
+            ``True``; otherwise return only the root (default value is
+            ``False``)
+        :type prefer_infinitive_form: bool
+        """
         self.prefer_infinitive_form = prefer_infinitive_form
 
     def stem(self, word):
-        """Finds the stem of a word.
+        """Finds the stem of the given word.
 
-        :param unicode word: The word to be stemmed
-        :returns list: A list of unicode strings which contain possible
-        stems of the word
+        :param word: word to be stemmed
+        :type word: unicode
+        :return: list of possible stems of the word
+        :rtype: list of unicode
         """
-
         roots = self.ROOT_FINDER.kokBul(word)
 
         if len(roots) == 0:
